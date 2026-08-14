@@ -51,8 +51,8 @@
                     </div>
                 </button>
 
-                <!-- Tombol Copy Link Guideline -->
-                <button onclick="copyLink('guideline')" class="flex items-center w-full text-left justify-between p-3.5 bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-xl transition group active:scale-95">
+                <!-- Tombol Copy Link Poster -->
+                <button onclick="copyLink('poster')" class="flex items-center w-full text-left justify-between p-3.5 bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-xl transition group active:scale-95">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-sky-600 text-white rounded-lg flex items-center justify-center font-bold">
                             <i class="fa-solid fa-copy"></i>
@@ -347,9 +347,9 @@ Kira-kira ${hNamaP} available untuk ikut ngga yah? Thank you yahh sebelumnya, ${
 
         // Fungsionalitas Link Copy
         function copyLink(type) {
-            let textToCopy = type === 'form' ? 'https://bit.ly/Pendaftaran-CEO2026' : 'https://bit.ly/Guideline-CEO2026';
+            let textToCopy = type === 'form' ? 'https://bit.ly/Pendaftaran-CEO2026' : 'https://bit.ly/Poster-CEO2026';
             navigator.clipboard.writeText(textToCopy).then(() => {
-                showToast(type === 'form' ? 'Link Formulir disalin!' : 'Link Guideline disalin!');
+                showToast(type === 'form' ? 'Link Formulir disalin!' : 'Link Poster disalin!');
             });
         }
 
