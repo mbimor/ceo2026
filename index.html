@@ -25,7 +25,7 @@
             </div>
             <div class="bg-emerald-800/60 px-4 py-2 rounded-lg border border-emerald-500/30 text-center">
                 <p class="text-xs text-emerald-200">Pelaksanaan Acara:</p>
-                <p class="text-sm font-semibold text-white">Sabtu–Ahad, 15–16 Agustus 2026</p>
+                <p class="text-sm font-semibold text-white">Sabtu–Ahad, 29–30 Agustus 2026</p>
             </div>
         </div>
     </header>
@@ -81,9 +81,13 @@
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Tingkat Kedekatan (Jenis Chat) *</label>
                         <select id="jenis_chat" class="w-full px-3.5 py-2.5 bg-emerald-50 border border-emerald-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none font-semibold text-emerald-900 transition text-sm">
-                            <option value="1">Jenis 1: Kenal, Sering/Kadang Berinteraksi</option>
-                            <option value="2">Jenis 2: Kenal, Jarang Banget Interaksi</option>
-                            <option value="3">Jenis 3: Belum Kenal, Chat Pertama</option>
+                            <option value="1">1. Sering chat, pake Aku/Kamu</option>
+                            <option value="2">2. Sering chat, pake Gw/Lu</option>
+                            <option value="3">3. Sering chat, pake Gua/Lu</option>
+                            <option value="4">4. Jarang chat, pake Aku/Kamu</option>
+                            <option value="5">5. Jarang chat, pake Gw/Lu</option>
+                            <option value="6">6. Jarang chat, pake Gua/Lu</option>
+                            <option value="7">7. Belum pernah chat</option>
                         </select>
                     </div>
 
@@ -92,25 +96,25 @@
                     <!-- Data Peserta -->
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Nama Peserta *</label>
-                        <input type="text" id="nama_peserta" placeholder="Contoh: Dika" 
+                        <input type="text" id="nama_peserta" placeholder="Contoh: Dika / Nela" 
                             class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition text-sm mb-3">
                         
                         <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Fakultas Peserta *</label>
-                        <input type="text" id="fak_peserta" placeholder="Contoh: FT / Vokasi" 
+                        <input type="text" id="fak_peserta" placeholder="Contoh: FIK / FT / Vokasi" 
                             class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition text-sm mb-3">
                         
                         <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Teman Lain (Confirmed) <span class="text-slate-400 normal-case font-normal">(Opsional)</span></label>
-                        <input type="text" id="nama_temen" placeholder="Contoh: Sarah dan Rio" 
+                        <input type="text" id="nama_temen" placeholder="Contoh: Amar dan Kiki" 
                             class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition text-sm">
                     </div>
 
-                    <!-- Data Pengajak (Muncul sesuai jenis chat) -->
+                    <!-- Data Pengajak (Muncul sesuai jenis chat 4-7) -->
                     <div id="data_pengajak_section" class="hidden p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
                         <p class="text-xs font-bold uppercase text-slate-600 mb-2">Data Diri Pengajak</p>
                         
                         <div>
                             <label class="block text-[11px] font-bold text-slate-500 mb-1">Nama Pengajak *</label>
-                            <input type="text" id="nama_pengajak" placeholder="Contoh: Ali" 
+                            <input type="text" id="nama_pengajak" placeholder="Contoh: Bimo" 
                                 class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none transition text-sm">
                         </div>
                         
@@ -122,21 +126,9 @@
                             </div>
                             <div>
                                 <label class="block text-[11px] font-bold text-slate-500 mb-1">Angkatan Pengajak *</label>
-                                <input type="text" id="angkatan_pengajak" placeholder="Contoh: 2023" 
+                                <input type="text" id="angkatan_pengajak" placeholder="Contoh: 2022" 
                                     class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none transition text-sm">
                             </div>
-                        </div>
-
-                        <!-- Waktu Sapaan Khusus Jenis 3 -->
-                        <div id="waktu_sapaan_section" class="hidden pt-1">
-                            <label class="block text-[11px] font-bold text-slate-500 mb-1">Waktu Sapaan *</label>
-                            <select id="waktu_sapaan" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none transition text-sm">
-                                <option value="" disabled selected>-- Pilih Waktu --</option>
-                                <option value="pagi">Pagi</option>
-                                <option value="siang">Siang</option>
-                                <option value="sore">Sore</option>
-                                <option value="malam">Malam</option>
-                            </select>
                         </div>
                     </div>
 
@@ -165,7 +157,7 @@
                         </h2>
                     </div>
 
-                    <!-- Result Box (Menggunakan DIV agar bisa memuat span KOSONG merah) -->
+                    <!-- Result Box -->
                     <div id="resultDisplay" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 text-sm leading-relaxed min-h-[300px] whitespace-pre-wrap font-sans overflow-y-auto"></div>
                 </div>
 
@@ -197,7 +189,6 @@
         const formEl = document.getElementById('broadcastForm');
         const selectJenis = document.getElementById('jenis_chat');
         const divPengajak = document.getElementById('data_pengajak_section');
-        const divWaktu = document.getElementById('waktu_sapaan_section');
         const resultDisplay = document.getElementById('resultDisplay');
         const waInput = document.getElementById('nomor_wa');
         
@@ -206,20 +197,16 @@
         // Tampilkan/Sembunyikan form tambahan sesuai Jenis Chat
         function updateFormVisibility() {
             const jenis = selectJenis.value;
-            if (jenis === '1') {
+            // Sembunyikan bagian pengajak jika interaksi 1, 2, atau 3
+            if (['1', '2', '3'].includes(jenis)) {
                 divPengajak.classList.add('hidden');
-                divWaktu.classList.add('hidden');
-            } else if (jenis === '2') {
+            } else {
                 divPengajak.classList.remove('hidden');
-                divWaktu.classList.add('hidden');
-            } else if (jenis === '3') {
-                divPengajak.classList.remove('hidden');
-                divWaktu.classList.remove('hidden');
             }
             generateBroadcast();
         }
 
-        // Fungsi Helper Mengambil Nilai atau Mengubah Jadi "KOSONG"
+        // Fungsi Helper Mengambil Nilai atau Mengubah Jadi "KOSONG" merah
         function getVal(id, format = 'html') {
             const val = document.getElementById(id).value.trim();
             if (val === '') {
@@ -239,106 +226,59 @@
             const hNamaA = getVal('nama_pengajak', 'html');
             const hFakA = getVal('fak_pengajak', 'html');
             const hAngkA = getVal('angkatan_pengajak', 'html');
-            const hWaktu = getVal('waktu_sapaan', 'html');
 
             // Format Plain Text (Untuk Clipboard & WA)
             const pNamaP = getVal('nama_peserta', 'plain');
             const pFakP = getVal('fak_peserta', 'plain');
-            const pNamaT = hNamaT; // opsional, tidak diset KOSONG
+            const pNamaT = hNamaT; 
             const pNamaA = getVal('nama_pengajak', 'plain');
             const pFakA = getVal('fak_pengajak', 'plain');
             const pAngkA = getVal('angkatan_pengajak', 'plain');
-            const pWaktu = getVal('waktu_sapaan', 'plain');
 
-            // Logic Teman Opsional
-            const hTambahTeman = hNamaT ? `, so far udah ada ${hNamaT} yang confirmed ikut` : '';
-            const pTambahTeman = pNamaT ? `, so far udah ada ${pNamaT} yang confirmed ikut` : '';
+            // Logic Teman Opsional (Spasi dan format sesuai rumus)
+            const hTambahTeman1_6 = hNamaT ? ` So far udah ada ${hNamaT} yang confirmed ikut.` : '';
+            const pTambahTeman1_6 = pNamaT ? ` So far udah ada ${pNamaT} yang confirmed ikut.` : '';
+            
+            const hTambahTeman7 = hNamaT ? ` Sejauh ini ada ${hNamaT} yang confirmed ikut.` : '';
+            const pTambahTeman7 = pNamaT ? ` Sejauh ini ada ${pNamaT} yang confirmed ikut.` : '';
 
             let htmlMsg = '';
             let plainMsg = '';
 
             if (jenis === '1') {
-                htmlMsg = `${hNamaP}, sorry gangguu waktunyaa,
+                htmlMsg = `⚠️ _Undangan ini khusus untuk kamu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap kamu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak aku atau mentor lu_\n\nAssalamu’alaikum, ${hNamaP}, sorry banget nihh ganggu waktunyaa\n\nAku mau mengajak kamu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI (mentoring gabungan se-UI) yang telah direkomendasikan oleh mentor masing-masing. CEO menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat kamu.* Aku juga lagi ngajak temen2 ${hFakP} lain yang mendapatkan rekomendasi untuk ikut.${hTambahTeman1_6}\n\nKalau kamu avail untuk ikut, bisa tolong isi RSVP ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira kamu sabi ikut nggak yahh? 😇`;
 
-Gw mau ngajak lu nihh, mungkin lu juga udah tau dari mentor halaqoh/mentoring lu, jadi dari Salam UI mau ngadain acara kumpul & upgrading muslim se-UI yang ikut mentoring, namanya CEO (Capacity Enrichment Odyssey), jadi kayak mentoring gabungan se-UI gitu, sebagai media buat refleksi diri, upgrade skill, refreshing diri (healing), dan silaturahim (memperluas koneksi) sama anak-anak fakultas lain
-
-Acaranya tanggal 29-30 Agustus 2026 nanti (nginep), di sekitar Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini khusus buat lu, sambil gw coba ajakin anak-anak ${hFakP} lain yang terundang juga buat ikutt${hTambahTeman}
-
-Berikut info kegiatannya:
-Form RSVP: https://ristek.link/Pendaftaran-CEO2026
-Poster Kegiatan: https://ristek.link/Poster-CEO2026
-
-Kira-kira lu sabi ikut ngga yah? 😇`;
-
-                plainMsg = `${pNamaP}, sorry gangguu waktunyaa,
-
-Gw mau ngajak lu nihh, mungkin lu juga udah tau dari mentor halaqoh/mentoring lu, jadi dari Salam UI mau ngadain acara kumpul & upgrading muslim se-UI yang ikut mentoring, namanya CEO (Capacity Enrichment Odyssey), jadi kayak mentoring gabungan se-UI gitu, sebagai media buat refleksi diri, upgrade skill, refreshing diri (healing), dan silaturahim (memperluas koneksi) sama anak-anak fakultas lain
-
-Acaranya tanggal 29-30 Agustus 2026 nanti (nginep), di sekitar Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini khusus buat lu, sambil gw coba ajakin anak-anak ${hFakP} lain yang terundang juga buat ikutt${hTambahTeman}
-
-Berikut info kegiatannya:
-Form RSVP: https://ristek.link/Pendaftaran-CEO2026
-Poster Kegiatan: https://ristek.link/Poster-CEO2026
-
-Kira-kira lu sabi ikut ngga yah? 😇`;
+                plainMsg = `⚠️ _Undangan ini khusus untuk kamu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap kamu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak aku atau mentor lu_\n\nAssalamu’alaikum, ${pNamaP}, sorry banget nihh ganggu waktunyaa\n\nAku mau mengajak kamu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI (mentoring gabungan se-UI) yang telah direkomendasikan oleh mentor masing-masing. CEO menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat kamu.* Aku juga lagi ngajak temen2 ${pFakP} lain yang mendapatkan rekomendasi untuk ikut.${pTambahTeman1_6}\n\nKalau kamu avail untuk ikut, bisa tolong isi RSVP ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira kamu sabi ikut nggak yahh? 😇`;
 
             } else if (jenis === '2') {
-                htmlMsg = `Haii ${hNamaP}, sorry banget nihh ganggu waktunyaa
+                htmlMsg = `⚠️ _Undangan ini khusus untuk lu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap lu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak gw atau mentor lu_\n\nAssalamu’alaikum, ${hNamaP}, sorry banget nihh ganggu waktunyaa\n\nGw mau mengajak lu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI (mentoring gabungan se-UI) yang telah direkomendasikan oleh mentor masing-masing. CEO menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat lu.* Gw juga lagi ngajak temen2 ${hFakP} lain yang mendapatkan rekomendasi untuk ikut.${hTambahTeman1_6}\n\nKalau lu avail untuk ikut, bisa tolong isi RSVP ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira lu sabi ikut nggak yahh? 😇`;
 
-Inii gw ${hNamaA} dari ${hFakA} ${hAngkA}
-
-Di sini gw mau ngajak lu nihh, mungkin lu juga udah tau dari mentor halaqoh/mentoring lu, buat ikut acara Salam UI, namanya CEO (Capacity Enrichment Odyssey). Ini sebenernya acara upgrading skill, refreshing diri, dan silaturahim yah, khusus mahasiswa se-UI yang ikut mentoring, jadi pas banget kalau ${hNamaP} ngerasa butuh tempat healing dan koneksi yang lebih luas dengan mahasiswa fakultas-fakultas lain
-
-Buat acaranya tuh tanggal 29-30 Agustus 2026 dan menginap di sekitar Depok/Puncak. Kuota RSVP-nya terbatas banget dan undangan ini khusus buat lu, sambil gw coba ajakin anak-anak ${hFakP} lain yang terundang juga buat ikutt${hTambahTeman}
-
-Berikut info kegiatannya:
-Form RSVP: https://ristek.link/Pendaftaran-CEO2026
-Poster Kegiatan: https://ristek.link/Poster-CEO2026
-
-Kira-kira lu available untuk ikut ngga yah? Thank you yahh sebelumnya, ${hNamaP} 😇`;
-
-                plainMsg = `Haii ${hNamaP}, sorry banget nihh ganggu waktunyaa
-
-Inii gw ${hNamaA} dari ${hFakA} ${hAngkA}
-
-Di sini gw mau ngajak lu nihh, mungkin lu juga udah tau dari mentor halaqoh/mentoring lu, buat ikut acara Salam UI, namanya CEO (Capacity Enrichment Odyssey). Ini sebenernya acara upgrading skill, refreshing diri, dan silaturahim yah, khusus mahasiswa se-UI yang ikut mentoring, jadi pas banget kalau ${hNamaP} ngerasa butuh tempat healing dan koneksi yang lebih luas dengan mahasiswa fakultas-fakultas lain
-
-Buat acaranya tuh tanggal 29-30 Agustus 2026 dan menginap di sekitar Depok/Puncak. Kuota RSVP-nya terbatas banget dan undangan ini khusus buat lu, sambil gw coba ajakin anak-anak ${hFakP} lain yang terundang juga buat ikutt${hTambahTeman}
-
-Berikut info kegiatannya:
-Form RSVP: https://ristek.link/Pendaftaran-CEO2026
-Poster Kegiatan: https://ristek.link/Poster-CEO2026
-
-Kira-kira lu available untuk ikut ngga yah? Thank you yahh sebelumnya, ${hNamaP} 😇`;
+                plainMsg = `⚠️ _Undangan ini khusus untuk lu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap lu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak gw atau mentor lu_\n\nAssalamu’alaikum, ${pNamaP}, sorry banget nihh ganggu waktunyaa\n\nGw mau mengajak lu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI (mentoring gabungan se-UI) yang telah direkomendasikan oleh mentor masing-masing. CEO menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat lu.* Gw juga lagi ngajak temen2 ${pFakP} lain yang mendapatkan rekomendasi untuk ikut.${pTambahTeman1_6}\n\nKalau lu avail untuk ikut, bisa tolong isi RSVP ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira lu sabi ikut nggak yahh? 😇`;
 
             } else if (jenis === '3') {
-                htmlMsg = `Haii ${hNamaP}, selamat ${hWaktu}, sorry banget nihh ganggu waktunyaa
+                htmlMsg = `⚠️ _Undangan ini khusus untuk lu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap lu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak gua atau mentor lu_\n\nAssalamu’alaikum, ${hNamaP}, sorry banget nihh ganggu waktunyaa\n\nGua mau mengajak lu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI (mentoring gabungan se-UI) yang telah direkomendasikan oleh mentor masing-masing. CEO menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat lu.* Gua juga lagi ngajak temen2 ${hFakP} lain yang mendapatkan rekomendasi untuk ikut.${hTambahTeman1_6}\n\nKalau lu avail untuk ikut, bisa tolong isi RSVP ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira lu sabi ikut nggak yahh? 😇`;
 
-Kenalinn, aku ${hNamaA} dari ${hFakA} ${hAngkA}, aku dapet kontak ${hNamaP} dari Data Mentoring ${hFakP} tahun ini
+                plainMsg = `⚠️ _Undangan ini khusus untuk lu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap lu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak gua atau mentor lu_\n\nAssalamu’alaikum, ${pNamaP}, sorry banget nihh ganggu waktunyaa\n\nGua mau mengajak lu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI (mentoring gabungan se-UI) yang telah direkomendasikan oleh mentor masing-masing. CEO menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat lu.* Gua juga lagi ngajak temen2 ${pFakP} lain yang mendapatkan rekomendasi untuk ikut.${pTambahTeman1_6}\n\nKalau lu avail untuk ikut, bisa tolong isi RSVP ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira lu sabi ikut nggak yahh? 😇`;
 
-Dalam hal ini aku mau mengajak ${hNamaP} buat ikut acara dari Salam UI nihh, mungkin ${hNamaP} juga udah tau dari mentor halaqoh/mentoring ${hNamaP}, nama acaranya CEO (Capacity Enrichment Odyssey). Kegiatan ini berisi upgrading soft skill, refreshing diri, dan silaturahim khusus mahasiswa se-UI yang ikut mentoring/halaqoh, jadi pas banget kalau ${hNamaP} butuh tempat healing dan koneksi yang lebih luas dengan mahasiswa fakultas-fakultas lain
+            } else if (jenis === '4') {
+                htmlMsg = `⚠️ _Undangan ini khusus untuk kamu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap kamu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak aku atau mentor kamu ^^_\n\nAssalamu’alaikum, ${hNamaP}, sorry banget nihh ganggu waktunyaa\nInii aku ${hNamaA} dari ${hFakA} ${hAngkA}, dari kepanitiaan CEO.\n\nAku mau mengajak kamu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI yang telah direkomendasikan oleh mentor masing-masing.\n\nCEO ini kurang lebih seperti *mentoring gabungan se-UI,* yang menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, insyaAllah menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat kamu.* Aku juga lagi ngajak temen2 ${hFakP} lain yang mendapatkan rekomendasi untuk ikut.${hTambahTeman1_6}\n\nKalau kamu berkenan untuk ikut, bisa tolong isi RSVP berikut ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira ${hNamaP} available untuk ikut nggak yaa? Thank you sebelumnyaa 😇`;
 
-Buat acaranya tuh tanggal 29-30 Agustus 2026 dan menginap di lingkungan sekitar Depok/Puncak. Kuotanya terbatas banget nihh dan undangan ini khusus buat ${hNamaP}, dan sambil aku coba ajakin anak-anak ${hFakP} lain yang terundang juga buat ikutt${hTambahTeman}
+                plainMsg = `⚠️ _Undangan ini khusus untuk kamu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap kamu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak aku atau mentor kamu ^^_\n\nAssalamu’alaikum, ${pNamaP}, sorry banget nihh ganggu waktunyaa\nInii aku ${pNamaA} dari ${pFakA} ${pAngkA}, dari kepanitiaan CEO.\n\nAku mau mengajak kamu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI yang telah direkomendasikan oleh mentor masing-masing.\n\nCEO ini kurang lebih seperti *mentoring gabungan se-UI,* yang menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, insyaAllah menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat kamu.* Aku juga lagi ngajak temen2 ${pFakP} lain yang mendapatkan rekomendasi untuk ikut.${pTambahTeman1_6}\n\nKalau kamu berkenan untuk ikut, bisa tolong isi RSVP berikut ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira ${pNamaP} available untuk ikut nggak yaa? Thank you sebelumnyaa 😇`;
 
-Berikut informasi kegiatannya:
-Form RSVP: https://ristek.link/Pendaftaran-CEO2026
-Poster Kegiatan: https://ristek.link/Poster-CEO2026
+            } else if (jenis === '5') {
+                htmlMsg = `⚠️ _Undangan ini khusus untuk lu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap lu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak gw atau mentor lu yahh ^^_\n\nAssalamu’alaikum, ${hNamaP}, sorry banget nihh ganggu waktunyaa\nInii gw ${hNamaA} dari ${hFakA} ${hAngkA}, dari kepanitiaan CEO.\n\nGw mau ngajak lu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI yang telah direkomendasikan oleh mentor masing-masing.\n\nCEO ini kurang lebih seperti *mentoring gabungan se-UI,* yang menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, insyaAllah menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat lu.* Gw juga lagi ngajak temen2 ${hFakP} lain yang mendapatkan rekomendasi untuk ikut.${hTambahTeman1_6}\n\nKalau lu berkenan untuk ikut, bisa tolong isi RSVP berikut ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira ${hNamaP} available untuk ikut nggak yaa? Thank you sebelumnyaa 😇`;
 
-Kira-kira ${hNamaP} available untuk ikut ngga yah? Thank you yahh sebelumnya, ${hNamaP} 😇`;
+                plainMsg = `⚠️ _Undangan ini khusus untuk lu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap lu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak gw atau mentor lu yahh ^^_\n\nAssalamu’alaikum, ${pNamaP}, sorry banget nihh ganggu waktunyaa\nInii gw ${pNamaA} dari ${pFakA} ${pAngkA}, dari kepanitiaan CEO.\n\nGw mau ngajak lu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI yang telah direkomendasikan oleh mentor masing-masing.\n\nCEO ini kurang lebih seperti *mentoring gabungan se-UI,* yang menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, insyaAllah menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat lu.* Gw juga lagi ngajak temen2 ${pFakP} lain yang mendapatkan rekomendasi untuk ikut.${pTambahTeman1_6}\n\nKalau lu berkenan untuk ikut, bisa tolong isi RSVP berikut ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira ${pNamaP} available untuk ikut nggak yaa? Thank you sebelumnyaa 😇`;
 
-                plainMsg = `Haii ${hNamaP}, selamat ${hWaktu}, sorry banget nihh ganggu waktunyaa
+            } else if (jenis === '6') {
+                htmlMsg = `⚠️ _Undangan ini khusus untuk lu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap lu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak gua atau mentor lu yahh ^^_\n\nAssalamu’alaikum, ${hNamaP}, sorry banget nihh ganggu waktunyaa\nInii gua ${hNamaA} dari ${hFakA} ${hAngkA}, dari kepanitiaan CEO.\n\nGua mau ngajak lu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI yang telah direkomendasikan oleh mentor masing-masing.\n\nCEO ini kurang lebih seperti *mentoring gabungan se-UI,* yang menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, insyaAllah menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat lu.* Gua juga lagi ngajak temen2 ${hFakP} lain yang mendapatkan rekomendasi untuk ikut.${hTambahTeman1_6}\n\nKalau lu berkenan untuk ikut, bisa tolong isi RSVP berikut ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira ${hNamaP} available untuk ikut nggak yaa? Thank you sebelumnyaa 😇`;
 
-Kenalinn, aku ${hNamaA} dari ${hFakA} ${hAngkA}, aku dapet kontak ${hNamaP} dari Data Mentoring ${hFakP} tahun ini
+                plainMsg = `⚠️ _Undangan ini khusus untuk lu, mohon tidak menyebarluaskan info agenda ini. Rekomendasi dari mentor berharap lu mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, bisa kontak gua atau mentor lu yahh ^^_\n\nAssalamu’alaikum, ${pNamaP}, sorry banget nihh ganggu waktunyaa\nInii gua ${pNamaA} dari ${pFakA} ${pAngkA}, dari kepanitiaan CEO.\n\nGua mau ngajak lu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI yang telah direkomendasikan oleh mentor masing-masing.\n\nCEO ini kurang lebih seperti *mentoring gabungan se-UI,* yang menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya bakal diadain tanggal *29-30 Agustus 2026*, insyaAllah menginap di daerah Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *khusus buat lu.* Gua juga lagi ngajak temen2 ${pFakP} lain yang mendapatkan rekomendasi untuk ikut.${pTambahTeman1_6}\n\nKalau lu berkenan untuk ikut, bisa tolong isi RSVP berikut ini yahh: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira ${pNamaP} available untuk ikut nggak yaa? Thank you sebelumnyaa 😇`;
 
-Dalam hal ini aku mau mengajak ${hNamaP} buat ikut acara dari Salam UI nihh, mungkin ${hNamaP} juga udah tau dari mentor halaqoh/mentoring ${hNamaP}, nama acaranya CEO (Capacity Enrichment Odyssey). Kegiatan ini berisi upgrading soft skill, refreshing diri, dan silaturahim khusus mahasiswa se-UI yang ikut mentoring/halaqoh, jadi pas banget kalau ${hNamaP} butuh tempat healing dan koneksi yang lebih luas dengan mahasiswa fakultas-fakultas lain
+            } else if (jenis === '7') {
+                htmlMsg = `⚠️ _Undangan ini khusus untuk kamu, mohon untuk tidak menyebarluaskan pesan dan informasi agenda ini. Rekomendasi dari mentormu yang berharap ${hNamaP} mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, dapat kontak mentor masing-masing atau kontak yang mengundangmu ^^_\n\nAssalamu’alaikum, ${hNamaP}!\nMaaf yaa tiba-tiba menghubungi dan mengganggu waktunya.\nKenalinn aku ${hNamaA} dari ${hFakA} ${hAngkA}, dari kepanitiaan CEO.\n\nAku mau mengajak kamu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI yang telah direkomendasikan oleh mentor masing-masing.\n\nCEO ini kurang lebih seperti *mentoring gabungan se-UI,* yang menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya akan dilaksanakan pada *29-30 Agustus 2026* dan insyaAllah menginap di sekitar Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *diperuntukkan khusus untuk ${hNamaP}.* Aku juga sedang mengajak teman-teman ${hFakP} lain yang mendapatkan rekomendasi untuk ikut.${hTambahTeman7}\n\nKalau ${hNamaP} berkenan untuk ikut, ${hNamaP} bisa mengisi RSVP melalui link berikut: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira ${hNamaP} berkenan untuk ikut nggak yaa? Thank you sebelumnyaa, ${hNamaP} 🤩✨`;
 
-Buat acaranya tuh tanggal 29-30 Agustus 2026 dan menginap di lingkungan sekitar Depok/Puncak. Kuotanya terbatas banget nihh dan undangan ini khusus buat ${hNamaP}, dan sambil aku coba ajakin anak-anak ${hFakP} lain yang terundang juga buat ikutt${hTambahTeman}
-
-Berikut informasi kegiatannya:
-Form RSVP: https://ristek.link/Pendaftaran-CEO2026
-Poster Kegiatan: https://ristek.link/Poster-CEO2026
-
-Kira-kira ${hNamaP} available untuk ikut ngga yah? Thank you yahh sebelumnya, ${hNamaP} 😇`;
+                plainMsg = `⚠️ _Undangan ini khusus untuk kamu, mohon untuk tidak menyebarluaskan pesan dan informasi agenda ini. Rekomendasi dari mentormu yang berharap ${pNamaP} mau meluangkan waktu dan hadir. Jika ada pertanyaan lebih lanjut, dapat kontak mentor masing-masing atau kontak yang mengundangmu ^^_\n\nAssalamu’alaikum, ${pNamaP}!\nMaaf yaa tiba-tiba menghubungi dan mengganggu waktunya.\nKenalinn aku ${pNamaA} dari ${pFakA} ${pAngkA}, dari kepanitiaan CEO.\n\nAku mau mengajak kamu untuk ikut *CEO (Capacity Enrichment Odyssey)* nihh, sebuah agenda dari *YukMentoring UI* yang mempertemukan peserta mentoring dari berbagai fakultas di UI yang telah direkomendasikan oleh mentor masing-masing.\n\nCEO ini kurang lebih seperti *mentoring gabungan se-UI,* yang menjadi ruang untuk refleksi diri, upgrade skill, refreshing dari rutinitas, sekaligus silaturahim dan memperluas koneksi dengan teman-teman dari fakultas lain.\n\nAcaranya akan dilaksanakan pada *29-30 Agustus 2026* dan insyaAllah menginap di sekitar Depok/Puncak. Kuota RSVP-nya terbatas dan undangan ini *diperuntukkan khusus untuk ${pNamaP}.* Aku juga sedang mengajak teman-teman ${pFakP} lain yang mendapatkan rekomendasi untuk ikut.${pTambahTeman7}\n\nKalau ${pNamaP} berkenan untuk ikut, ${pNamaP} bisa mengisi RSVP melalui link berikut: http://ristek.link/Pendaftaran-CEO2026 (Kalaupun belum bisa hadir, tolong tetep isi formnya sebagai survei YukMentoring dan nanti bisa tetep join group juga)\n\nKira-kira ${pNamaP} berkenan untuk ikut nggak yaa? Thank you sebelumnyaa, ${pNamaP} 🤩✨`;
             }
 
             resultDisplay.innerHTML = htmlMsg;
@@ -409,4 +349,3 @@ Kira-kira ${hNamaP} available untuk ikut ngga yah? Thank you yahh sebelumnya, ${
     </script>
 </body>
 </html>
-
